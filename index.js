@@ -1,4 +1,5 @@
 const express         = require('express');
+const morgan          = require('morgan');
 const expressLayouts  = require('express-ejs-layouts');
 const bodyParser      = require('body-parser');
 const mongoose        = require('mongoose');
@@ -14,6 +15,7 @@ mongoose.connect(env.db);
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 
+app.use(morgan('dev'));
 app.use(expressLayouts);
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,4 +29,4 @@ app.use(methodOverride((req) => {
 
 app.use(router);
 
-app.listen(env.port, () => console.log(`Server up and running on port: ${env.port}.`));
+app.listen(env.port, () => console.log(`Server is a go on port: ${env.port}.`));
