@@ -1,0 +1,9 @@
+<h1><%= review.title %></h1>
+<p><%= review.genre %></p>
+<p><%= review.review %></p>
+<p><%= review.rating %></p>
+<a href="/reviews/<%= review._id %>/edit">Edit</a>
+<form action="/reviews/<%= review.id %>" method="post">
+  <input type="hidden" name="_method" value="Delete">
+  <input type="submit" value="Delete">
+</form>
