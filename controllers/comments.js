@@ -10,6 +10,7 @@ function commentCreate(req, res){
   const comment = new Comment(req.body);
   comment.user = res.locals.user._id;
   console.log('COMMENT TO CREATE -------->', comment);
+  
   comment
   .save()
   .then(comment => {
