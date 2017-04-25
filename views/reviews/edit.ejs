@@ -1,6 +1,7 @@
 <h3>Add Review</h3>
 
 <form action="/reviews/<%= review._id %>" method="post">
+  <input type="hidden" name="_method" value="PUT">
   <label for="title">Film Title</label>
   <input type="text" name="title" id="title" value="<%= review.title %>">
 

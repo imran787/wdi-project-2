@@ -5,6 +5,7 @@ const router  = express.Router();
 const reviews = require('../controllers/reviews');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const comments = require('../controllers/comments');
 
 
 
@@ -31,7 +32,11 @@ router.route('/reviews/new')
 router.route('/reviews/:id')
 .get(reviews.show)
 .put(protectRoute, reviews.update)
-.delete(protectRoute, reviews.delete);
+.delete(protectRoute, reviews.delete)
+.post(comments.create);
+// .post(protectRoute, comments.create);
+
+
 
 router.route('/reviews/:id/edit')
 .get(protectRoute, reviews.edit);
@@ -49,5 +54,14 @@ router.route('/login')
 //use delete method(in nav)
 router.route('/logout')
 .get(sessions.delete);
+
+//handling comments
+router.route('reviews/:id/comments/new')
+  .get(comments.new);
+
+router.route('/reviews/:id')
+
+
+
 
 module.exports = router;

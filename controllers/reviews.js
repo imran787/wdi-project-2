@@ -1,4 +1,5 @@
 const Review = require('../models/review');
+const Comment = require('../models/comment');
 
 //new and create above show
 
@@ -34,8 +35,10 @@ function reviewCreate(req, res){
 function reviewShow(req, res){
   Review
   .findById(req.params.id)
+  .populate('comments')
   .exec()
   .then(review => {
+    console.log(review.comments);
     if(!review){
       return res.render('error', {error: 'No review has been found.'});
     }

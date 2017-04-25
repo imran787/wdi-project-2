@@ -4,8 +4,8 @@ const reviewSchema = new mongoose.Schema({
   title: {type: String, trim: true, required: true},
   genre: {type: String, trim: true},
   review: {type: String, trim: true, required: true},
-  rating: {type: Number, trim: true, required: true}
-
+  rating: {type: Number, trim: true, required: true},
+  comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 },{
   timestamps: true
 });
