@@ -59,7 +59,7 @@ router.route('/logout')
 router.route('reviews/:id/comments/new')
   .get(comments.new);
 
-router.route('/reviews/:id')
+// router.route('/reviews/:id')
 
 
 

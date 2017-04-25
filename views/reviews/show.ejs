@@ -28,14 +28,15 @@
     </div>
 
   </div>
-  <div class="col-md-6">
-  
-</ul>
+  <div class="col-md-6" id="filmShow">
+
+
   </div>
 
 
 <ul>
   <% review.comments.forEach(comment => { %>
-    <div><%= comment.text %></div>
+
+    <div><%= comment.user%> => <%= comment.text %></div>
   <% }); %>
 </ul>

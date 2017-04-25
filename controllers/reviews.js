@@ -38,10 +38,11 @@ function reviewShow(req, res){
   .populate('comments')
   .exec()
   .then(review => {
-    console.log(review.comments);
+    console.log('REVIEWS SHOW ----->', review);
     if(!review){
       return res.render('error', {error: 'No review has been found.'});
     }
+    console.log(review);
     return res.render('reviews/show', {review});
   })
   .catch(err => {

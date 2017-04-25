@@ -7,17 +7,20 @@ function commentNew(req, res){
 }
 
 function commentCreate(req, res){
-  Comment
-  .create(req.body)
+  const comment = new Comment(req.body);
+  comment.user = res.locals.user._id;
+  console.log('COMMENT TO CREATE -------->', comment);
+  comment
+  .save()
   .then(comment => {
     Review.findById(req.params.id)
     .exec()
     .then(review => {
       review.comments.push(comment.id);
+      console.log('REVIEW TO SAVE -------->', review);
       review.save();
+      console.log('SAVED REVIEW --------->', review);
     });
-    if(!comment) return res.render('error', {error: 'No comment has been created!'});
-    return res.redirect(`/reviews/${req.params.id}`);
   })
   .catch(err => {
     return res.render('error', {error: err});
