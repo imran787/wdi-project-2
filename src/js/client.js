@@ -25,6 +25,8 @@ $(document).ready(()=>{
     // getMovie(searchText).forEach(result => {
     //   $(`<div class=" col-md-4">${result}</div>`).appendTo('#filmShow');
     // });
+
+    // apiDivFill();
   });
 });
 
@@ -38,6 +40,7 @@ $(document).ready(()=>{
 //   });
 // }
 function getMovies(searchText){
+  // $.get('http://www.omdbapi.com?s=' + searchText)
   $.get('http://www.omdbapi.com?s=' + searchText)
   .done(data =>{
     // console.log(JSON.parse(data));

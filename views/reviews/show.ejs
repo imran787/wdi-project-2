@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row col-md-8">
     <ul class="list-group">
-      <li class="list-group-item"><h4><%= review.title %></h4></li>
+      <li class="list-group-item review-title"><h4><%= review.title %></h4></li>
       <li class="list-group-item"><%= review.genre %></li>
       <li class="list-group-item"><%= review.review %></li>
       <li class="list-group-item"><%= review.rating %></li>
@@ -12,11 +12,15 @@
       <input type="submit" value="Delete">
     </form>
   </div>
-</div>
+  <div class="row col-md-4">
+    <div class="showApi">
 
+    </div>
+  </div>
+</div>
 <%# <a href="/comments/new">Add a Comment</a>%>
 
-<div class="container">
+
   <div class="row col-md-4">
     <div>
       <p >Add New Comment to <%= review.title %></p></br>
@@ -41,6 +45,6 @@
 
   <ul>
     <% review.comments.forEach(comment => { %>
-      <div><%= comment.user%> => <%= comment.text %></div>
-      <% }); %>
-    </ul>
+      <li><strong><%= comment.user.username %></strong>    <%= comment.text %></li>
+    <% }); %>
+  </ul>
