@@ -18,7 +18,7 @@ $(document).ready(()=>{
     const searchText = $('.searchLanding').val();
     // console.log(searchText);
     $('.filmShow').empty();
-    getMovie(searchText);
+    getMovies(searchText);
     // console.log(getMovie(searchText));
     // const result = getMovie(searchText);
     // $(`<p>${result}</p>`).appendTo($('.filmShow'));
@@ -37,7 +37,7 @@ $(document).ready(()=>{
 //     console.log(err);
 //   });
 // }
-function getMovie(searchText){
+function getMovies(searchText){
   $.get('http://www.omdbapi.com?s=' + searchText)
   .done(data =>{
     // console.log(JSON.parse(data));
@@ -46,10 +46,10 @@ function getMovie(searchText){
 
     data.Search.forEach(result => {
       const contentString =
-      '<div class="col-md-4 text-center">'+
-      `<a href="/reviews/new"><img src="${result.Poster}"></a>`+
-      `<p>${result.Title}</p>`+
-      `<p>${result.Year}</p>`+
+      '<div class="col-md-3 text-center img-holder">'+
+      `<a href="/reviews/new"><img src="${result.Poster}" class="img-thumbnail"></a>`+
+      `<h5>${result.Title}</h5>`+
+      `<a target="_blank" class="btn btn-primary" href="http://www.imdb.com/title/${result.imdbID}" >More info</a>`+
       '</div>';
       $(contentString).appendTo('.filmShow');
       // console.log(result.Poster);

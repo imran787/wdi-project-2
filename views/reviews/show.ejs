@@ -1,18 +1,23 @@
-<h1><%= review.title %></h1>
-<p><%= review.genre %></p>
-<p><%= review.review %></p>
-<p><%= review.rating %></p>
-<a href="/reviews/<%= review._id %>/edit">Edit</a>
-<form action="/reviews/<%= review.id %>" method="post">
-  <input type="hidden" name="_method" value="Delete">
-  <input type="submit" value="Delete">
-</form>
+<div class="container">
+  <div class="row col-md-8">
+    <ul class="list-group">
+      <li class="list-group-item"><h4><%= review.title %></h4></li>
+      <li class="list-group-item"><%= review.genre %></li>
+      <li class="list-group-item"><%= review.review %></li>
+      <li class="list-group-item"><%= review.rating %></li>
+    </ul>
+    <a href="/reviews/<%= review._id %>/edit">Edit</a>
+    <form action="/reviews/<%= review.id %>" method="post">
+      <input type="hidden" name="_method" value="Delete">
+      <input type="submit" value="Delete">
+    </form>
+  </div>
+</div>
+
 <%# <a href="/comments/new">Add a Comment</a>%>
 
 <div class="container">
-  <div class="row col-md-6">
-
-
+  <div class="row col-md-4">
     <div>
       <p >Add New Comment to <%= review.title %></p></br>
       <form action="/reviews/<%= review._id %>" method="POST">
@@ -34,9 +39,8 @@
   </div>
 
 
-<ul>
-  <% review.comments.forEach(comment => { %>
-
-    <div><%= comment.user%> => <%= comment.text %></div>
-  <% }); %>
-</ul>
+  <ul>
+    <% review.comments.forEach(comment => { %>
+      <div><%= comment.user%> => <%= comment.text %></div>
+      <% }); %>
+    </ul>

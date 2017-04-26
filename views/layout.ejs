@@ -6,7 +6,8 @@
   <title>WDI Project 2</title>
 
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <%# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">%>
+  <link rel="stylesheet" href="https://bootswatch.com/journal/bootstrap.min.css">
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -19,10 +20,10 @@
 <body>
   <header>
 
-    <nav class="navbar navbar-toggleable-md navbar-light" >
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-default" >
+
+
+
       <a class="navbar-brand" href="/">Review project</a>
 
 
@@ -69,9 +70,13 @@
        <input class="searchBtn btn btn-default" type="submit" value="Search">
      </form>
       </ul>%>
-    </div>
-  </nav>
+
+
+    <%# </div>
+  </nav>%>
 </header>
+
+
 
 <main class="container">
   <% for (const type in messages) { %>

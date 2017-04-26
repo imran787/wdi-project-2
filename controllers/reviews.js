@@ -35,7 +35,15 @@ function reviewCreate(req, res){
 function reviewShow(req, res){
   Review
   .findById(req.params.id)
-  .populate('comments')
+  .populate({
+    path: 'comments',
+    model: 'Comment',
+    populate: {
+      path: 'user',
+      model: 'User'
+    }
+
+  })
   .exec()
   .then(review => {
     console.log('REVIEWS SHOW ----->', review);
