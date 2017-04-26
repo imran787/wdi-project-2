@@ -11,18 +11,23 @@ $(document).ready(()=>{
 
 //func to prepopulate the show page with api data
   function getMovieInfo() {
-    var movieTitle = $('#searchTitle').text();
+    var movieTitle = $('.searchTitle').text();
     console.log(movieTitle);
     if (movieTitle.length > 1) {
       $.get(`http://www.omdbapi.com?t=${movieTitle}`)
       .done(movie => {
         console.log(movie);
-        console.log(movie.Actors);
+
+        const tomatoes = movie.Ratings[1];
+        console.log(tomatoes);
         const contentString =
         '<div class="col-md-3 text-center img-holder">'+
         `<a target="_blank" href="${movie.Poster}"><img src="${movie.Poster}" class="img-thumbnail"></a>`+
         `<h5>${movie.Title}</h5>`+
         `<a target="_blank" class="btn btn-primary" href="${movie.Website}" >More info</a>`+
+        `<p>${movie.Director}</p>`+
+        `<p>${movie.Actors}</p>`+
+        `<p>${movie.imdbRating}</p>`+
         '</div>';
         $(contentString).appendTo('.showApi');
       });

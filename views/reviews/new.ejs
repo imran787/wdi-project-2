@@ -1,19 +1,26 @@
 <h3>Add Review</h3>
 
 
-    <form action="/reviews" method="post">
-      <label for="title">Film Title</label>
-      <input type="text" name="title" id="title" class="formTitle">
+<form action="/reviews" method="post">
+  <div class="form-group">
+    <label for="title">Film Title</label>
+    <input type="text" name="title" id="title" class="formTitle form-control">
+  </div>
 
-      <label for="genre">Film Genre</label>
-      <input type="text" name="genre" id="genre">
+  <div class="form-group">
+    <label for="genre">Film Genre</label>
+    <input type="text" name="genre" id="genre" class="form-control">
+  </div>
 
-      <label for="review">Review</label>
-      <textarea name="review" id="review"></textarea>
+  <div class="form-group">
+    <label for="review">Review</label>
+    <textarea name="review" id="review" class="form-control"></textarea>
+  </div>
+  <div class="fomr-group">
+    <label for="rating">Rating</label>
+    <input type="text" name="rating" id="rating" class="form-control">
+  </div></br>
 
-      <label for="rating">Rating</label>
-      <input type="text" name="rating" id="rating">
+  <input type="submit" value="submit">
 
-      <input type="submit" value="submit">
-
-    </form>
+</form>
