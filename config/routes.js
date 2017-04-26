@@ -6,6 +6,7 @@ const reviews = require('../controllers/reviews');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const comments = require('../controllers/comments');
+const movies = require('../controllers/movies');
 
 
 
@@ -61,6 +62,9 @@ router.route('reviews/:id/comments/new')
 
 // router.route('/reviews/:id')
 
+//
+router.route('/movie/:id')
+ .get(movies.getMovie);
 
 
 

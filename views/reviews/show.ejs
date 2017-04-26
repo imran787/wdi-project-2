@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row col-md-8">
     <ul class="list-group">
-      <li class="list-group-item review-title"><h4><%= review.title %></h4></li>
+      <li class="list-group-item review-title"><h4 id="searchTitle"><%= review.title %></h4></li>
       <li class="list-group-item"><%= review.genre %></li>
       <li class="list-group-item"><%= review.review %></li>
       <li class="list-group-item"><%= review.rating %></li>
     </ul>
-    <a href="/reviews/<%= review._id %>/edit">Edit</a>
+    <a href="/reviews/<%= review._id %>/edit" id="editYo">Edit</a>
     <form action="/reviews/<%= review.id %>" method="post">
       <input type="hidden" name="_method" value="Delete">
       <input type="submit" value="Delete">
@@ -23,7 +23,7 @@
 
   <div class="row col-md-4">
     <div>
-      <p >Add New Comment to <%= review.title %></p></br>
+      <p>Add New Comment to <%= review.title %></p></br>
       <form action="/reviews/<%= review._id %>" method="POST">
         <div class="form-group">
           <textarea class="form-control" type="text" name="text" placeholder="add a comment"></textarea>
@@ -37,7 +37,7 @@
     </div>
 
   </div>
-  <div class="col-md-6" id="filmShow">
+  <div class="" id="filmShow">
 
 
   </div>
