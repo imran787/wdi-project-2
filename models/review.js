@@ -5,6 +5,7 @@ const reviewSchema = new mongoose.Schema({
   genre: {type: String, trim: true},
   review: {type: String, trim: true, required: true},
   rating: {type: String, trim: true},
+  image: {type: String },
   comments: [{ type: mongoose.Schema.ObjectId, ref: 'Comment'}]
 }, {
   timestamps: true

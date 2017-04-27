@@ -1,7 +1,12 @@
-<h3 id="titleHeader">Add Review</h3>
 
-<div class="container">
-  <div class="col-md-6">
+
+<div class="container register">
+
+
+  <div class="col-md-12 text-center">
+    <div id="titleHeader text-center">
+  <h3>Add Review</h3>
+  </div>
     <form action="/reviews" method="post">
       <div class="form-group">
         <label for="title" id="titleCheck">Film Title</label>
@@ -13,10 +18,18 @@
         <input type="text" name="genre" id="genre" class="form-control">
       </div>
 
+      <div class="form-group" style="display:none;">
+        <label for="review">Poster Image</label>
+        <input name="image" id="image" class="form-control"></input>
+      </div>
+
       <div class="form-group">
         <label for="review">Review</label>
         <textarea name="review" id="review" class="form-control"></textarea>
       </div>
+
+
+
       <div class="txt-center">
         <div class="rating">
             <input id="star5" name="rating" type="radio" value="5" class="radio-btn hide" />

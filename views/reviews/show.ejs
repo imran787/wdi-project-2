@@ -17,9 +17,9 @@
 
 
     </ul>
-    <div style="display: inline-block;">
+    <div class="buttonsDiv" style="display: inline-block;">
       <button class="btn btn-primary"><a href="/reviews/<%= review._id %>/edit">Edit</a></button>
-      <form action="/reviews/<%= review.id %>" method="post">
+      <form style="float:right;" action="/reviews/<%= review.id %>" method="post">
         <input type="hidden" name="_method" value="Delete">
         <input type="submit" class="btn btn-primary" value="Delete">
       </form>
@@ -29,7 +29,7 @@
 <div class="">
 
     <div>
-      <p>Add New Comment to <%= review.title %></p></br>
+      <h5 style="margin-top:50px;">Add New Comment to <%= review.title %></h5></br>
       <form action="/reviews/<%= review._id %>" method="POST">
         <div class="form-group">
           <textarea class="form-control" type="text" name="text" placeholder="add a comment"></textarea>

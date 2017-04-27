@@ -1,12 +1,12 @@
 
 $(document).ready(()=>{
   $('#searchForm').on('submit', searchForFilms);
-  if ($('#homepageYo').length > 0) {
-    $('body').css('background-image', 'url(https://images.unsplash.com/photo-1485727296248-6b44e6a35ab6?dpr=1&auto=format&fit=crop&w=1199&h=675&q=80&cs=tinysrgb&crop=&bg=)');
-    
-  } else {
-    $('body').css('background-image', '');
-  }
+  // if ($('#homepageYo').length > 0) {
+  //   $('body').css('background-image', 'url(https://images.unsplash.com/photo-1485727296248-6b44e6a35ab6?dpr=1&auto=format&fit=crop&w=1199&h=675&q=80&cs=tinysrgb&crop=&bg=)').addClass('bigImage');
+  //   $('body').addClass('bigImage');
+  // } else {
+  //   $('body').css('background-image', '');
+  // }
   function searchForFilms(e) {
     e.preventDefault();
     const searchText = $('.searchLanding').val();
@@ -50,13 +50,23 @@ $(document).ready(()=>{
       data.Search.forEach(result => {
         const contentString =
         '<div class="col-md-3 text-center img-holder container">'+
-        `<img src="${result.Poster}" class="img-thumbnail">`+
-        `<h5>${result.Title}</h5>`+
-        `<a class="btn btn-primary submissionBtn" href="/reviews/new/?title=${result.Title}&poster=${result.Poster}">Submit a Review</a>`+
-        `<a target="_blank" class="btn btn-primary" href="http://www.imdb.com/title/${result.imdbID}" >More Info</a>`+
-        //`<a target="_blank" class="btn btn-primary" href="http://www.imdb.com/title/${result.imdbID}" >More info</a>`+
+        '<div class="posterIndex">'+
+        `<img src="${result.Poster}" class="indexImages">`+
+        `<div class="title-container">` +
+        `<h5 style="color:white;">${result.Title}</h5>`+
+        `</div>` +
+        `<a class="btn btn-primary submissionBtn" href="/reviews/new/?title=${result.Title}&poster=${result.Poster}" style="margin-right:2px;">Submit a Review</a>`+
+        `<a target="_blank" class="btn btn-primary" style="margin-left:2px;" href="http://www.imdb.com/title/${result.imdbID}" >More Info</a>`+
+        '</div>' +
         '</div>';
+
+
+        // <div class="col-md-4 text-center img-holder container">
+        // <div class="posterIndex">
+        // <img class="indexImages" src="<%= review.image %>">
+
         $('#containerHome').hide();
+
         $(contentString).appendTo('.filmShow');
       });
       $('.submissionBtn').on('click', postData);
@@ -65,6 +75,9 @@ $(document).ready(()=>{
       console.log(err);
     });
   }
+
+// <div class="col-md-3 text-center img-holder container">
+
   getMovieInfo();
 
   function postData(e) {
@@ -95,10 +108,19 @@ $(document).ready(()=>{
       console.log(title);
       console.log(poster);
       $('#title').attr('value', title);
-      $(`<img id="filmPoster" src="${poster}">`).appendTo($('#titleHeader'));
+      $('#image').attr('value', poster);
+      $(`<img class="newPoster" src="${poster}">`).appendTo($('#titleHeader'));
     }
   }
 
   getQueryHashes();
 });
 // href="/films/${result.imdbID}/reviews/new"
+
+
+// '<div class="col-md-3 text-center img-holder container">'+
+// `<img src="${result.Poster}" class="img-thumbnail indexImages">`+
+// `<h5>${result.Title}</h5>`+
+// `<a class="btn btn-primary submissionBtn" href="/reviews/new/?title=${result.Title}&poster=${result.Poster}">Submit a Review</a>`+
+// `<a target="_blank" class="btn btn-primary" href="http://www.imdb.com/title/${result.imdbID}" >More Info</a>`+
+// '</div>';

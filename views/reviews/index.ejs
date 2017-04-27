@@ -1,4 +1,8 @@
-<h1>Reviews</h1>
+<div class="reviewPage">
+
+
+<h1 id="reviewsIndexHeader">Reviews</h1>
+
 
 <ul style="list-style-type:none">
   <div class="row">
@@ -6,10 +10,15 @@
 
 
   <% review.forEach(review => { %>
-    <div class="col-md-4">
-    <li><a href="/reviews/<%= review._id %>"><%= review.title %></a></li>
+    <div class="col-md-4 text-center img-holder container">
+    <div class="posterIndex">
+    <img class="indexImages" src="<%= review.image %>">
+    <li><h4 class="indexHeader"><a href="/reviews/<%= review._id %>"><%= review.title %></a></h4></li>
+
+    </div>
     </div>
   <% }); %>
-  
+
     </div>
 </ul>
+</div>
