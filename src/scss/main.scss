@@ -1,21 +1,27 @@
-.wrapper-home {
-  background-image: url(https://images.unsplash.com/photo-1485727296248-6b44e6a35ab6?dpr=1&auto=format&fit=crop&w=1199&h=675&q=80&cs=tinysrgb&crop=&bg=);
-  height: 100%;
-  width: 100%;
+// .wrapper-home {
+//   background-image: url(https://images.unsplash.com/photo-1485727296248-6b44e6a35ab6?dpr=1&auto=format&fit=crop&w=1199&h=675&q=80&cs=tinysrgb&crop=&bg=);
+//   height: 100%;
+//   width: 100%;
+// }
+
+#filmPoster {
+  height: 18px;
+  width: 300px;
 }
 
-img{
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  margin: 0 auto;
-}
+
+// img{
+//   width: 18%;
+//   height: 100%;
+//   background-position: center;
+//   background-size: cover;
+//   margin: 0 auto;
+// }
 @media(min-width:960px) {
 
 
   .filmShow img {
-    width: 100%;
+    width: 18%;
     height: 100%;
 
   }
@@ -32,6 +38,7 @@ img{
   top: 40%;
   left: 26%;
   width: 600px;
+
 }
 
 #container {
@@ -108,8 +115,17 @@ img{
   position: absolute;
   left: 0;
   color: #FFD700;
+  color: transparent;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative;
 }
 
 a {
   color: black;
+}
+
+.jumbotron#containerHome {
+  background-color: rgba(0,0,0,0.5) !important;
 }

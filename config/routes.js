@@ -24,7 +24,8 @@ function protectRoute(req, res, next) {
 }
 
 router.route('/')
-.get(statics.index);
+.get(statics.index)
+.post(reviews.addReviewData);
 
 router.route('/reviews')
 .get(reviews.index)

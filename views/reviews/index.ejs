@@ -1,7 +1,15 @@
 <h1>Reviews</h1>
 
-<ul>
+<ul style="list-style-type:none">
+  <div class="row">
+
+
+
   <% review.forEach(review => { %>
+    <div class="col-md-4">
     <li><a href="/reviews/<%= review._id %>"><%= review.title %></a></li>
+    </div>
   <% }); %>
+  
+    </div>
 </ul>

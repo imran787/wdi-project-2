@@ -3,6 +3,7 @@ $(document).ready(()=>{
   $('#searchForm').on('submit', searchForFilms);
   if ($('#homepageYo').length > 0) {
     $('body').css('background-image', 'url(https://images.unsplash.com/photo-1485727296248-6b44e6a35ab6?dpr=1&auto=format&fit=crop&w=1199&h=675&q=80&cs=tinysrgb&crop=&bg=)');
+    
   } else {
     $('body').css('background-image', '');
   }
@@ -33,7 +34,7 @@ $(document).ready(()=>{
         `<p>Director: ${movie.Director}</p>`+
         `<p>Cast: ${movie.Actors}</p>`+
         `<p>IMDB Rating: ${movie.imdbRating}</p>`+
-          '</div>'+
+        '</div>'+
         `</div>`;
         $(contentString).appendTo('.showApi');
       });
@@ -49,15 +50,16 @@ $(document).ready(()=>{
       data.Search.forEach(result => {
         const contentString =
         '<div class="col-md-3 text-center img-holder container">'+
-          `<a href="/reviews/new"><img src="${result.Poster}" class="img-thumbnail"></a>`+
+        `<img src="${result.Poster}" class="img-thumbnail">`+
         `<h5>${result.Title}</h5>`+
-          `<a target="_blank" class="btn btn-primary" href="/reviews/new" >Submit a Review</a>`+
+        `<a class="btn btn-primary submissionBtn" href="/reviews/new/?title=${result.Title}&poster=${result.Poster}">Submit a Review</a>`+
         `<a target="_blank" class="btn btn-primary" href="http://www.imdb.com/title/${result.imdbID}" >More Info</a>`+
         //`<a target="_blank" class="btn btn-primary" href="http://www.imdb.com/title/${result.imdbID}" >More info</a>`+
         '</div>';
+        $('#containerHome').hide();
         $(contentString).appendTo('.filmShow');
-
       });
+      $('.submissionBtn').on('click', postData);
     })
     .catch((err)=>{
       console.log(err);
@@ -65,4 +67,38 @@ $(document).ready(()=>{
   }
   getMovieInfo();
 
+  function postData(e) {
+    var filmInfo = $(e.target).parent();
+    var data = {};
+    var filmName = filmInfo.find('h5').text();
+    var poster = filmInfo.find('img').attr('src');
+    data.name = filmName;
+    data.poster = poster;
+    console.log(data);
+    // console.log(filmName);
+    // console.log(poster);
+    $.post(`${window.location.origin}`, { data });
+  }
+
+  function getQueryHashes() {
+    if ($('#titleCheck').length > 0) {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+      }
+      console.log(vars);
+      var title = vars.title.replace(/20/g, '').replace(/%/g, ' ');
+      var poster = vars.poster;
+      console.log(title);
+      console.log(poster);
+      $('#title').attr('value', title);
+      $(`<img id="filmPoster" src="${poster}">`).appendTo($('#titleHeader'));
+    }
+  }
+
+  getQueryHashes();
 });
+// href="/films/${result.imdbID}/reviews/new"

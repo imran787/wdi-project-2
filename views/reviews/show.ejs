@@ -6,12 +6,12 @@
       <li class="list-group-item review-title"><h4 class="searchTitle"><%= review.title %></h4></li>
       <li class="list-group-item"><%= review.genre %></li>
       <li class="list-group-item"><%= review.review %></li>
-      <li class="list-group-item"><%= review.rating %></li>
+      <li class="list-group-item"><% for (var i = 0; i < parseFloat(review.rating); i++) {%>
+        <div class=".star" style="color:#FFD700; display:inline;">☆</div>
+        <% } %></li>
       <div class="rating">
-        <% for (var i = 0; i < parseFloat(review.rating); i++) {%>
-          <div clas=".star" style="color:#FFD700; display:inline;">☆</label>
-          <% } %>
-      </div>
+
+
 
     </div>
 
@@ -35,7 +35,9 @@
           <textarea class="form-control" type="text" name="text" placeholder="add a comment"></textarea>
         </div>
         <div class="form-group">
+
           <button class="btn  btn-primary btn-block">Submit Comment</button>
+
         </div>
 
       </form>
@@ -44,7 +46,7 @@
     <ul>
         <hr>
         <% review.comments.forEach(comment => { %>
-          <li><strong><%= comment.user.username %></strong>    <%= comment.text %></li>
+          <div style="list-style-type: none;"><li><strong><%= comment.user.username %></strong> --->    <%= comment.text %></li></div>
         <% }); %>
       </ul>
   </div>
