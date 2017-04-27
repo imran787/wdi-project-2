@@ -5,7 +5,7 @@
     <ul class="list-group">
       <li class="list-group-item review-title"><h4 class="searchTitle"><%= review.title %></h4></li>
       <li class="list-group-item"><%= review.genre %></li>
-      <li class="list-group-item"><%= review.review %></li>
+      <li class="list-group-item fontSt"><%= review.review %></li>
       <li class="list-group-item"><% for (var i = 0; i < parseFloat(review.rating); i++) {%>
         <div class=".star" style="color:#FFD700; display:inline;">☆</div>
         <% } %></li>
@@ -28,7 +28,7 @@
 
 <div class="">
 
-    <div>
+    <div style="color:#1d1e2c;">
       <h5 style="margin-top:50px;" class="text-center">Add New Comment to <%= review.title %></h5></br>
       <form action="/reviews/<%= review._id %>" method="POST">
         <div class="form-group">
@@ -46,7 +46,7 @@
     <ul>
         <hr>
         <% review.comments.forEach(comment => { %>
-          <div style="list-style-type: none;"><li><strong><%= comment.user.username %></strong>     <%= comment.text %></li></div>
+          <div style="list-style-type: none;"><li><strong><%= comment.user.username %></strong><div></div>  <%= comment.text %></li></div><br/>
         <% }); %>
       </ul>
   </div>

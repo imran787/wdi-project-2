@@ -33,7 +33,7 @@ $(document).ready(()=>{
         `<p>Director: ${movie.Director}</p>`+
         `<p>Cast: ${movie.Actors}</p>`+
         `<p>IMDB Rating: ${movie.imdbRating}</p>`+
-        `<a target="_blank" class="btn btn-primary" href="${movie.Website}" >More Info</a>`+
+        `<a target="_blank" class="btn  submissionBtn" href="${movie.Website}" >More Info</a>`+
         '</div>'+
         `</div>`;
         $(contentString).appendTo('.showApi');
