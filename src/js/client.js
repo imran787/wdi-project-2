@@ -28,12 +28,12 @@ $(document).ready(()=>{
         const contentString =
         `<div class="container">`+
         '<div class="col-md-3 text-center img-holder row">'+
-        `<a target="_blank" href="${movie.Poster}"><img src="${movie.Poster}" class="img-thumbnail"></a>`+
+        `<a target="_blank" href="${movie.Poster}"><img src="${movie.Poster}" class="img-thumbnail" style='margin-top:-1px;'></a>`+
         `<h5>${movie.Title}</h5>`+
-        `<a target="_blank" class="btn btn-primary" href="${movie.Website}" >movie website</a>`+
         `<p>Director: ${movie.Director}</p>`+
         `<p>Cast: ${movie.Actors}</p>`+
         `<p>IMDB Rating: ${movie.imdbRating}</p>`+
+        `<a target="_blank" class="btn btn-primary" href="${movie.Website}" >More Info</a>`+
         '</div>'+
         `</div>`;
         $(contentString).appendTo('.showApi');
