@@ -1,34 +1,33 @@
+
 <div class="container">
-  <div class="row col-md-8">
+  <div class="row">
+    <div class="col-md-8">
     <ul class="list-group">
       <li class="list-group-item review-title"><h4 class="searchTitle"><%= review.title %></h4></li>
       <li class="list-group-item"><%= review.genre %></li>
       <li class="list-group-item"><%= review.review %></li>
       <li class="list-group-item"><%= review.rating %></li>
-    </ul>
-    <a href="/reviews/<%= review._id %>/edit" id="editYo">Edit</a>
-    <form action="/reviews/<%= review.id %>" method="post">
-      <input type="hidden" name="_method" value="Delete">
-      <input type="submit" value="Delete">
-    </form>
-    
-    <ul>
-      <% review.comments.forEach(comment => { %>
-        <li><strong><%= comment.user.username %></strong>    <%= comment.text %></li>
-      <% }); %>
-    </ul>
-
-  </div>
-  <div class="row col-md-4">
-    <div class="showApi">
+      <div class="rating">
+        <% for (var i = 0; i < parseFloat(review.rating); i++) {%>
+          <div clas=".star" style="color:#FFD700; display:inline;">☆</label>
+          <% } %>
+      </div>
 
     </div>
-  </div>
-</div>
-<%# <a href="/comments/new">Add a Comment</a>%>
 
 
-  <div class="row col-md-4">
+    </ul>
+    <div style="display: inline-block;">
+      <button class="btn btn-primary"><a href="/reviews/<%= review._id %>/edit">Edit</a></button>
+      <form action="/reviews/<%= review.id %>" method="post">
+        <input type="hidden" name="_method" value="Delete">
+        <input type="submit" class="btn btn-primary" value="Delete">
+      </form>
+    </div>
+
+
+<div class="">
+
     <div>
       <p>Add New Comment to <%= review.title %></p></br>
       <form action="/reviews/<%= review._id %>" method="POST">
@@ -42,6 +41,27 @@
       </form>
 
     </div>
+    <ul>
+        <hr>
+        <% review.comments.forEach(comment => { %>
+          <li><strong><%= comment.user.username %></strong>    <%= comment.text %></li>
+        <% }); %>
+      </ul>
+  </div>
+
+  </div>
+  <div class="col-md-4">
+    <div class="showApi">
+
+    </div>
+  </div>
+  </div>
+</div>
+<%# <a href="/comments/new">Add a Comment</a>%>
+
+
+  <div class="row">
+
 
   </div>
   <div class="" id="filmShow">

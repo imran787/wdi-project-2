@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
   <%# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">%>
   <link rel="stylesheet" href="https://bootswatch.com/journal/bootstrap.min.css">
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -19,20 +20,10 @@
 </head>
 <body>
   <header>
-
     <nav class="navbar navbar-default navbar-static-top" >
-
-
-
       <a class="navbar-brand" href="/">Review project</a>
-
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
         <ul class="navbar-nav mr-auto" style="list-style:none;">
-          <%# <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>%>
         <li class="nav-item">
           <a class="navbar-brand" href="/reviews">Reviews</a>
         </li>
@@ -41,40 +32,20 @@
         </li>
         </ul>
         <div class=" navbar-right navbar-brand">
-
             <% if (locals.isLoggedIn) { %>
-
         <a class="nav-link" href="/logout">Logout</a>
-
     <% } else { %>
-
-        <a class="nav-link" href="/login">Log In</a>
-
-
+        <a class="nav-link" href="/login">LogIn</a>
         <a class="nav-link" href="/register">Register</a>
-
     <% } %>
-
-
         </div>
-
-
-
-
-
 </nav>
 </header>
 
-
-
-
-
-
-<main class="container">
+<main>
   <% for (const type in messages) { %>
   <p class="alert alert-<%= type %>"><%= messages[type] %></p>
 <% } %>
-
   <%- body %>
 </main>
 </body>

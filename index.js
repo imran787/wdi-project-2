@@ -5,13 +5,9 @@ const bodyParser      = require('body-parser');
 const mongoose        = require('mongoose');
 mongoose.Promise      = require('bluebird');
 const methodOverride  = require('method-override');
-
 const session = require('express-session');
 const User = require('./models/user');
 const flash = require('express-flash');
-
-
-
 const env             = require('./config/env');
 const router          = require('./config/routes');
 const app             = express();

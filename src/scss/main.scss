@@ -1,10 +1,8 @@
-body {
-  font-family: sans-serif;
-  background: #fff5e5;
-  font-family: 'Inconsolata', monospace;
+.wrapper-home {
+  background-image: url(https://images.unsplash.com/photo-1485727296248-6b44e6a35ab6?dpr=1&auto=format&fit=crop&w=1199&h=675&q=80&cs=tinysrgb&crop=&bg=);
+  height: 100%;
+  width: 100%;
 }
-
-
 
 img{
   width: 100%;
@@ -26,13 +24,92 @@ img{
   }
   .filShow .col-md-3 img{
     height: 240px;
-  }
+
 }
 
 .jumbotron {
+  position: absolute;
+  top: 40%;
+  left: 26%;
+  width: 600px;
+}
 
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  margin-top: 0;
+#container {
+  border: 1px solid;
+  padding: 5px;
+  max-width: 630px;
+}
+
+.item {
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin: 5px;
+  background: #CCC;
+}
+
+.item.w2 {
+  width: 130px;
+}
+
+.item.h2 {
+  height: 130px;
+}
+
+.txt-center {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+.star {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #FFD700;
+}
+
+a {
+  color: black;
 }

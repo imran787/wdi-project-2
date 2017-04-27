@@ -7,6 +7,7 @@ const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const comments = require('../controllers/comments');
 const movies = require('../controllers/movies');
+const statics = require('../controllers/statics');
 
 
 
@@ -22,6 +23,9 @@ function protectRoute(req, res, next) {
   return next();
 }
 
+router.route('/')
+.get(statics.index);
+
 router.route('/reviews')
 .get(reviews.index)
 .post(protectRoute, reviews.create);
@@ -34,7 +38,7 @@ router.route('/reviews/:id')
 .get(reviews.show)
 .put(protectRoute, reviews.update)
 .delete(protectRoute, reviews.delete)
-.post(comments.create);
+.post(protectRoute, comments.create);
 // .post(protectRoute, comments.create);
 
 
